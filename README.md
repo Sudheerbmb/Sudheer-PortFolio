@@ -4,7 +4,7 @@ Welcome to my personal portfolio! This website showcases my journey, skills, and
 
 ## 🌐 Live Website  
 
-Visit my portfolio: **[https://sudheer-port-folio.vercel.app/](https://sudheer-port-folio.vercel.app/)**  
+Visit my portfolio: **[Click Here](https://sudheer-port-folio.vercel.app/)**  
 
 ---
 
@@ -47,8 +47,8 @@ This portfolio is crafted using:
 
 I am **actively looking for exciting opportunities** in **AI, Data Science, and Software Development**. If you are hiring or want to collaborate, feel free to reach out!  
 
-📧 **Email:** [sudheermsdvk@gmail.com](mailto:sudheermsdvk@gmail.com)  
-🔗 **Portfolio:** [sudheerkumarportfolio.vercel.app](https://sudheerkumarportfolio.vercel.app)  
-💼 **LinkedIn:** [linkedin.com/in/sudheer-kumar-thati](https://linkedin.com/in/sudheer-kumar-thati)  
+📧 **Email:** [Mail Me](mailto:sudheermsdvk@gmail.com)  
+🔗 **Portfolio:** [Click Here](https://sudheer-port-folio.vercel.app)  
+💼 **LinkedIn:** [Click Here](https://linkedin.com/in/sudheer-kumar-thati)  
 
 I am excited to bring my skills to impactful projects. Let’s build something amazing together! 🚀  
