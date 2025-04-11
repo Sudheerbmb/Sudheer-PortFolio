@@ -9,15 +9,80 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 6,
+      title: 'LexEcho:Audio Transcription and Summarization Web App',
+      description: 'Flask web app that transcribes M4A audio files using Whisper, summarizes content with Gemini API, and extracts key topics.',
+      category: 'AI/ML',
+      tags: ['Flask', 'Whisper', 'Gemini API', 'FFmpeg', 'NLTK', 'Python'],
+      image: '/echo.png',
+      links: {
+        demo: '#',
+        github: '#',
+      },
+    },
+    {
+      id: 5,
+      title: 'Medical Chatbot using Flask and Groq API',
+      description: 'Flask-based chatbot that responds to medical-related queries using the Groq API with medical keyword filtering.',
+      category: 'AI/ML',
+      tags: ['Flask', 'Groq API', 'Langchain', 'Python', 'Web Interface'],
+      image: '/bot.png',
+      links: {
+        demo: '#',
+        github: '#',
+      },
+    },
+    {
+      id: 4,
+      title: 'Weather ETL Pipeline with Apache Airflow',
+      description: 'ETL pipeline using Apache Airflow to fetch, process, and store weather data from Open-Meteo API into PostgreSQL.',
+      category: 'Data Science',
+      tags: ['Apache Airflow', 'ETL', 'PostgreSQL', 'Python', 'API Integration'],
+      image: '/pipe.jpg',
+      links: {
+        demo: '#',
+        github: '#',
+      },
+    },
+    {
       id: 1,
       title: 'MCQ Generator with Flask and AWS Bedrock',
       description: 'Flask-based MCQ Generator supporting PDF, DOCX, and TXT formats, leveraging AWS Bedrock (Llama 3-8B LLM).',
       category: 'AI/ML',
       tags: ['Flask', 'AWS Bedrock', 'EC2', 'FPDF', 'HTML', 'CSS', 'JS'],
-      image: '/mcq.png',
+      image: '/mcc.png',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/Bedrock',
+      },
+    },
+    
+   
+   
+    
+    
+    {
+      id: 7,
+      title: 'Groq Code Forge: Python Code Optimizer',
+      description: 'Web application that optimizes Python code using Groq API, providing complexity analysis and detailed explanations.',
+      category: 'AI/ML',
+      tags: ['Flask', 'Groq API', 'Langchain', 'Python', 'Code Optimization'],
+      image: '/codeopt1.png',
+      links: {
+        demo: '#',
+        github: '#',
+      },
+    },
+    {
+      id: 8,
+      title: 'Movie Recommendation System',
+      description: 'Flask-based recommendation system using Collaborative Filtering (SVD) and Content-Based Filtering (TF-IDF with cosine similarity).',
+      category: 'AI/ML',
+      tags: ['Flask', 'SVD', 'TF-IDF', 'Scikit-learn', 'Surprise', 'Python'],
+      image: '/mv.jpg',
+      links: {
+        demo: '#',
+        github: '#',
       },
     },
     {
@@ -39,66 +104,6 @@ const Projects = () => {
       category: 'Data Science',
       tags: ['SQL', 'ER Modeling', 'Data Analysis'],
       image: '/sqq.webp',
-      links: {
-        demo: '#',
-        github: '#',
-      },
-    },
-    {
-      id: 4,
-      title: 'Weather ETL Pipeline with Apache Airflow',
-      description: 'ETL pipeline using Apache Airflow to fetch, process, and store weather data from Open-Meteo API into PostgreSQL.',
-      category: 'Data Science',
-      tags: ['Apache Airflow', 'ETL', 'PostgreSQL', 'Python', 'API Integration'],
-      image: '/pipe.jpg',
-      links: {
-        demo: '#',
-        github: '#',
-      },
-    },
-    {
-      id: 5,
-      title: 'Medical Chatbot using Flask and Groq API',
-      description: 'Flask-based chatbot that responds to medical-related queries using the Groq API with medical keyword filtering.',
-      category: 'AI/ML',
-      tags: ['Flask', 'Groq API', 'Langchain', 'Python', 'Web Interface'],
-      image: '/bot.png',
-      links: {
-        demo: '#',
-        github: '#',
-      },
-    },
-    {
-      id: 6,
-      title: 'LexEcho:Audio Transcription and Summarization Web App',
-      description: 'Flask web app that transcribes M4A audio files using Whisper, summarizes content with Gemini API, and extracts key topics.',
-      category: 'AI/ML',
-      tags: ['Flask', 'Whisper', 'Gemini API', 'FFmpeg', 'NLTK', 'Python'],
-      image: '/echo.png',
-      links: {
-        demo: '#',
-        github: '#',
-      },
-    },
-    {
-      id: 7,
-      title: 'Groq Code Forge: Python Code Optimizer',
-      description: 'Web application that optimizes Python code using Groq API, providing complexity analysis and detailed explanations.',
-      category: 'AI/ML',
-      tags: ['Flask', 'Groq API', 'Langchain', 'Python', 'Code Optimization'],
-      image: '/codeopt1.png',
-      links: {
-        demo: '#',
-        github: '#',
-      },
-    },
-    {
-      id: 8,
-      title: 'Movie Recommendation System',
-      description: 'Flask-based recommendation system using Collaborative Filtering (SVD) and Content-Based Filtering (TF-IDF with cosine similarity).',
-      category: 'AI/ML',
-      tags: ['Flask', 'SVD', 'TF-IDF', 'Scikit-learn', 'Surprise', 'Python'],
-      image: '/mv.jpg',
       links: {
         demo: '#',
         github: '#',
