@@ -1,31 +1,63 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { 
+  FaPython, FaJava, FaReact, FaAws, FaDocker, FaGitAlt, FaDatabase
+} from 'react-icons/fa';
+import { 
+  SiJavascript, SiMysql, SiPostgresql, SiApacheairflow, 
+  SiScikitlearn, SiSpringboot, SiFlask, SiTailwindcss,
+  SiIntellijidea, SiPostman, SiGithub
+} from 'react-icons/si';
+import { TbBrandVscode } from 'react-icons/tb';
 
 const Skills = () => {
-  const technicalSkills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'TypeScript', level: 75 },
-    { name: 'HTML/CSS', level: 95 },
-    { name: 'Python', level: 70 },
+  const skillCategories = [
+    {
+      title: "Programming Languages",
+      items: [
+        { name: 'Python', icon: FaPython },
+        { name: 'Java', icon: FaJava },
+        { name: 'JavaScript', icon: SiJavascript },
+        { name: 'SQL', icon: FaDatabase },
+      ]
+    },
+    {
+      title: "Databases & Cloud",
+      items: [
+        { name: 'MySQL', icon: SiMysql },
+        { name: 'PostgreSQL', icon: SiPostgresql },
+        { name: 'AWS', icon: FaAws },
+      ]
+    },
+    {
+      title: "DevOps & Data Engineering",
+      items: [
+        { name: 'Docker', icon: FaDocker },
+        { name: 'Git', icon: FaGitAlt },
+        { name: 'Airflow', icon: SiApacheairflow },
+        { name: 'ETL', icon: SiApacheairflow },
+      ]
+    }
   ];
 
   const frameworks = [
-    'React', 'Vue.js', 'Angular', 'Next.js', 'Express.js', 
-    'Django', 'Flask', 'TailwindCSS', 'Bootstrap', 'Material UI'
+    { name: 'Flask', icon: SiFlask },
+    { name: 'Spring Boot', icon: SiSpringboot },
+    { name: 'React.js', icon: FaReact },
+    { name: 'Tailwind', icon: SiTailwindcss },
   ];
 
   const tools = [
-    'Git', 'Figma', 'Adobe XD', 'VS Code', 'Docker', 
-    'AWS', 'Firebase', 'MongoDB', 'PostgreSQL', 'Redis'
+    'VS Code', 'IntelliJ IDEA', 'Postman', 'Git', 'GitHub',
+    'AWS CLI', 'AWS Bedrock', 'Docker', 'PostgreSQL', 'Excel'
   ];
 
   const softSkills = [
-    'Problem Solving', 'Team Collaboration', 'Communication',
-    'Project Management', 'Time Management', 'Adaptability',
-    'Critical Thinking', 'Attention to Detail', 'Creativity'
+    'Problem-Solving & Analytical Thinking',
+    'Team Collaboration',
+    'Creativity & Innovation',
+    'Adaptability',
+    'Technical Communication'
   ];
 
   return (
@@ -37,59 +69,41 @@ const Skills = () => {
             <span className="text-gradient">My Skills</span>
           </h3>
           <p className="mt-4 text-foreground/70 max-w-3xl mx-auto">
-            I have acquired a diverse set of skills throughout my journey as a developer.
-            Here's a comprehensive overview of my technical and soft skills.
+            A comprehensive overview of my technical expertise and professional capabilities.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-          {/* Technical Skills */}
-          <div className="glass-card rounded-xl p-6 space-y-6 interactive-card">
-            <h4 className="text-xl font-semibold">Technical Proficiency</h4>
-            
-            <div className="space-y-4">
-              {technicalSkills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-foreground/80">{skill.name}</span>
-                    <span className="text-accent">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2 bg-muted">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Technical Skills Grid */}
+          <div className="space-y-6">
+            {skillCategories.map((category) => (
+              <div key={category.title} className="glass-card rounded-xl p-6 interactive-card">
+                <h4 className="text-xl font-semibold mb-5">{category.title}</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+                  {category.items.map((skill) => (
                     <div 
-                      className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </Progress>
+                      key={skill.name} 
+                      className="flex flex-col items-center text-center transition-transform hover:scale-110"
+                    >
+                      <skill.icon className="w-14 h-14 mb-2 text-accent hover:text-primary transition-colors" />
+                      <span className="text-foreground/80 text-base font-medium">{skill.name}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
           {/* Other Skills Container */}
-          <div className="space-y-12">
-            {/* Frameworks & Libraries */}
-            <div className="glass-card rounded-xl p-6 interactive-card">
-              <h4 className="text-xl font-semibold mb-4">Frameworks & Libraries</h4>
-              <div className="flex flex-wrap gap-2">
-                {frameworks.map((item) => (
-                  <Badge 
-                    key={item} 
-                    className="bg-primary/20 hover:bg-primary/30 text-foreground border border-primary/30"
-                  >
-                    {item}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
+          <div className="space-y-6">
             {/* Tools & Technologies */}
             <div className="glass-card rounded-xl p-6 interactive-card">
-              <h4 className="text-xl font-semibold mb-4">Tools & Technologies</h4>
+              <h4 className="text-xl font-semibold mb-5">Tools & Technologies</h4>
               <div className="flex flex-wrap gap-2">
                 {tools.map((item) => (
                   <Badge 
                     key={item} 
-                    className="bg-accent/20 hover:bg-accent/30 text-foreground border border-accent/30"
+                    className="bg-accent/20 hover:bg-accent/30 text-foreground border border-accent/30 text-base px-3 py-1.5"
                   >
                     {item}
                   </Badge>
@@ -99,15 +113,31 @@ const Skills = () => {
 
             {/* Soft Skills */}
             <div className="glass-card rounded-xl p-6 interactive-card">
-              <h4 className="text-xl font-semibold mb-4">Soft Skills</h4>
+              <h4 className="text-xl font-semibold mb-5">Soft Skills</h4>
               <div className="flex flex-wrap gap-2">
                 {softSkills.map((item) => (
                   <Badge 
                     key={item} 
-                    className="bg-secondary/20 hover:bg-secondary/30 text-foreground border border-secondary/30"
+                    className="bg-secondary/20 hover:bg-secondary/30 text-foreground border border-secondary/30 text-base px-3 py-1.5"
                   >
                     {item}
                   </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* Frameworks */}
+            <div className="glass-card rounded-xl p-6 interactive-card">
+              <h4 className="text-xl font-semibold mb-5">Frameworks</h4>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+                {frameworks.map((framework) => (
+                  <div 
+                    key={framework.name} 
+                    className="flex flex-col items-center text-center transition-transform hover:scale-110"
+                  >
+                    <framework.icon className="w-14 h-14 mb-2 text-accent hover:text-primary transition-colors" />
+                    <span className="text-foreground/80 text-base font-medium">{framework.name}</span>
+                  </div>
                 ))}
               </div>
             </div>

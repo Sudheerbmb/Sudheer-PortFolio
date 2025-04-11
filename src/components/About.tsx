@@ -227,10 +227,10 @@ const About = () => {
             <div className="space-y-4 text-foreground/80">
               <p>
                 I am a passionate data scientist and full-stack developer with experience in machine learning, AI, and software development.
-                I have worked on various projects, including an **MCQ Generator using AWS Bedrock, Breast Cancer Detection System, and Medical Web Application.**
+                I have worked on various projects, including an MCQ Generator using AWS Bedrock, Breast Cancer Detection System, and Medical Web Application.
               </p>
               <p>
-                My expertise spans **Python, Java, C, C++, SQL, Flask, Apache Hadoop, AWS, Azure, Scikit-Learn, Pandas, NumPy, Seaborn, and Matplotlib.**
+                My expertise spans Python, Java, C, C++, SQL, Flask, Apache Hadoop, AWS, Azure, Scikit-Learn, Pandas, NumPy, Seaborn, and Matplotlib.
                 I am committed to building innovative solutions that bridge technology and real-world impact.
               </p>
               <p>

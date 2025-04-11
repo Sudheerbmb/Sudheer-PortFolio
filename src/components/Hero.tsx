@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Twitter, Mail, ChevronDown } from 'lucide-react';
@@ -65,14 +64,13 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
           <p className="text-accent font-medium">Hello, I'm</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-            <span className="text-gradient">Your Name</span>
+            <span className="text-gradient">SUDHEER KUMAR</span>
           </h1>
           <h2 className="text-2xl md:text-3xl text-foreground/90 max-w-2xl">
             I create <span className="text-neon-cyan">innovative</span> and <span className="text-neon-purple">impactful</span> digital experiences
           </h2>
           <p className="text-foreground/70 max-w-2xl">
-            Full-stack developer specializing in building exceptional digital experiences.
-            Currently, I'm focused on creating accessible, human-centered products.
+          Data scientist specializing in deriving actionable insights from complex data. Currently, I'm focused on building AI-driven solutions for real-world challenges.
           </p>
           
           {/* Call-to-action buttons */}
@@ -83,16 +81,16 @@ const Hero = () => {
           
           {/* Social links */}
           <div className="flex items-center space-x-6 mt-8">
-            <a href="#" className="text-foreground/80 hover:text-neon-purple transition-colors">
+            <a href="https://https://github.com/Sudheerbmb" className="text-foreground/80 hover:text-neon-purple transition-colors">
               <Github size={24} />
             </a>
-            <a href="#" className="text-foreground/80 hover:text-neon-blue transition-colors">
+            <a href="https://linkedin.com/in/sudheer-kumar-thati/ " className="text-foreground/80 hover:text-neon-blue transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-foreground/80 hover:text-neon-cyan transition-colors">
+            <a href="https://x.com/SudheerTruly/" className="text-foreground/80 hover:text-neon-cyan transition-colors">
               <Twitter size={24} />
             </a>
-            <a href="#" className="text-foreground/80 hover:text-neon-orange transition-colors">
+            <a href="mailto:sudheermsdvk@gmail.com" className="text-foreground/80 hover:text-neon-orange transition-colors">
               <Mail size={24} />
             </a>
           </div>
@@ -104,8 +102,8 @@ const Hero = () => {
         href="#about" 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-foreground/50 hover:text-foreground/80 transition-colors"
       >
-        <span className="mb-2 text-sm">Scroll Down</span>
-        <ChevronDown size={20} className="animate-bounce" />
+        {/* <span className="mb-2 text-sm">Scroll Down</span>
+        <ChevronDown size={20} className="animate-bounce" /> */}
       </a>
     </section>
   );
