@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
 const Projects = () => {
-  const categories = ['All', 'AI/ML', 'Web', 'Data Science'];
+  const categories = ['All', 'AI/ML', 'Web', 'Data Science',"DE"];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const projects = [
@@ -17,7 +17,7 @@ const Projects = () => {
       image: '/echo.png',
       links: {
         demo: '#',
-        github: '#',
+        github: 'https://github.com/Sudheerbmb/LexEcho',
       },
     },
     {
@@ -29,19 +29,19 @@ const Projects = () => {
       image: '/bot.png',
       links: {
         demo: '#',
-        github: '#',
+        github: 'https://github.com/Sudheerbmb/Medical-ChatBot',
       },
     },
     {
       id: 4,
       title: 'Weather ETL Pipeline with Apache Airflow',
       description: 'ETL pipeline using Apache Airflow to fetch, process, and store weather data from Open-Meteo API into PostgreSQL.',
-      category: 'Data Science',
+      category: 'DE',
       tags: ['Apache Airflow', 'ETL', 'PostgreSQL', 'Python', 'API Integration'],
       image: '/pipe.jpg',
       links: {
         demo: '#',
-        github: '#',
+        github: 'https://github.com/Sudheerbmb/airflow-weather-pipeline',
       },
     },
     {
@@ -53,7 +53,7 @@ const Projects = () => {
       image: '/mcc.png',
       links: {
         demo: '#',
-        github: 'https://github.com/Sudheerbmb/Bedrock',
+        github: 'https://github.com/Sudheerbmb/EduQuizAI',
       },
     },
     
@@ -70,7 +70,7 @@ const Projects = () => {
       image: '/codeopt1.png',
       links: {
         demo: '#',
-        github: '#',
+        github: 'https://github.com/Sudheerbmb/CodeOptimizer',
       },
     },
     {
@@ -82,7 +82,7 @@ const Projects = () => {
       image: '/mv.jpg',
       links: {
         demo: '#',
-        github: '#',
+        github: 'https://github.com/Sudheerbmb/Movie-Recommendation-System',
       },
     },
     {
@@ -105,7 +105,7 @@ const Projects = () => {
       tags: ['SQL', 'ER Modeling', 'Data Analysis'],
       image: '/sqq.webp',
       links: {
-        demo: '#',
+        demo: 'https://www.linkedin.com/posts/sudheer-kumar-thati_oyo-activity-7058820058365501440-EjDY?utm_source=share&utm_medium=member_android&rcm=ACoAAD22K6MBpe4xT0yI0p1klFV8dXo5fzPWbg4',
         github: '#',
       },
     },

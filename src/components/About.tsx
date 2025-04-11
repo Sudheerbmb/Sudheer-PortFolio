@@ -32,44 +32,40 @@ const About = () => {
               </h2>
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 <span className="text-foreground">Passionate</span>{' '}
-                <span className="text-gradient">Data Scientist & Developer</span>{' '}
-                <span className="text-foreground">Based in</span>{' '}
-                <span className="text-gradient">Kadapa, India</span>
+                <span className="text-gradient">Data Scientist & AI Enthusiast</span>{' '}
+                {/* <span className="text-foreground">Based in</span>{' '}
+                <span className="text-gradient">Kadapa, India</span> */}
               </h3>
             </div>
             
             <div className="space-y-4 text-foreground/80">
+            <p>  
+Data is more than numbers—it's a story waiting to be told. I decode patterns, harness AI and machine learning, and transform raw information into intelligence that drives innovation.  
+ 
+From optimizing databases to streamlining data pipelines, I use Python, Java, and cloud computing to craft solutions that turn complexity into clarity and insights into action.  
+</p>
               <p>
-                I am a passionate data scientist and full-stack developer with experience in machine learning, AI, and software development.
-                I have worked on various projects, including an MCQ Generator using AWS Bedrock, Breast Cancer Detection System, and Medical Web Application.
-              </p>
-              <p>
-                My expertise spans Python, Java, C, C++, SQL, Flask, Apache Hadoop, AWS, Azure, Scikit-Learn, Pandas, NumPy, Seaborn, and Matplotlib.
-                I am committed to building innovative solutions that bridge technology and real-world impact.
-              </p>
-              <p>
-                When I'm not coding, I contribute to open-source projects, explore AI advancements, and write technical blogs.
-              </p>
+              When I’m not coding, I explore the latest tech, experimenting through trial and error, and pushing the boundaries of innovation.              </p>
             </div>
             
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
               <div className="glass-card p-4 rounded-lg text-center">
-                <p className="text-2xl md:text-3xl font-bold text-primary">3+</p>
-                <p className="text-sm text-foreground/70">Years Experience</p>
+                <p className="text-2xl md:text-3xl font-bold text-primary">2+</p>
+                <p className="text-sm text-foreground/70">Years Hands-On Experience</p>
               </div>
               <div className="glass-card p-4 rounded-lg text-center">
-                <p className="text-2xl md:text-3xl font-bold text-primary">50+</p>
+                <p className="text-2xl md:text-3xl font-bold text-primary">15+</p>
                 <p className="text-sm text-foreground/70">Projects Completed</p>
               </div>
               <div className="glass-card p-4 rounded-lg text-center">
-                <p className="text-2xl md:text-3xl font-bold text-primary">10+</p>
+                <p className="text-2xl md:text-3xl font-bold text-primary">5+</p>
                 <p className="text-sm text-foreground/70">Certifications</p>
               </div>
-              <div className="glass-card p-4 rounded-lg text-center">
-                <p className="text-2xl md:text-3xl font-bold text-primary">5+</p>
+              {/* <div className="glass-card p-4 rounded-lg text-center">
+                <p className="text-2xl md:text-3xl font-bold text-primary">3+</p>
                 <p className="text-sm text-foreground/70">Tech Stacks Mastered</p>
-              </div>
+              </div> */}
             </div>
             
             {/* CTA */}
