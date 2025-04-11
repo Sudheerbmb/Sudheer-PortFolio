@@ -11,20 +11,20 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <a href="#" className="text-2xl font-bold">
-              <span className="text-gradient">Portfolio</span>
+              {/* <span className="text-gradient">Portfolio</span> */}
             </a>
-            <p className="text-foreground/60 mt-2 text-sm">
+            {/* <p className="text-foreground/60 mt-2 text-sm">
               Creating digital experiences that matter.
-            </p>
+            </p> */}
           </div>
           
           <div className="flex flex-col items-center md:items-end">
-            <p className="text-foreground/60 text-sm flex items-center">
+            {/* <p className="text-foreground/60 text-sm flex items-center">
               Made with <Heart size={14} className="mx-1 text-primary" /> using React & TailwindCSS
             </p>
             <p className="text-foreground/60 text-sm mt-1">
               &copy; {currentYear} Your Name. All rights reserved.
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
