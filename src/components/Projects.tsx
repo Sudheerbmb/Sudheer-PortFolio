@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, CalendarDays } from 'lucide-react';
 
 const Projects = () => {
   const categories = ['All', 'AI/ML', 'Web', 'Data Science',"DE"];
   const [activeCategory, setActiveCategory] = useState('All');
+  const [showAll, setShowAll] = useState(false);
 
   const projects = [
     {
@@ -15,6 +16,7 @@ const Projects = () => {
       category: 'AI/ML',
       tags: ['Flask', 'Whisper', 'Gemini API', 'FFmpeg', 'NLTK', 'Python'],
       image: '/echo.png',
+      timeframe: 'Feb 2025',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/LexEcho',
@@ -27,6 +29,7 @@ const Projects = () => {
       category: 'AI/ML',
       tags: ['Flask', 'Groq API', 'Langchain', 'Python', 'Web Interface'],
       image: '/bot.png',
+      timeframe: 'July 2024',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/Medical-ChatBot',
@@ -39,6 +42,7 @@ const Projects = () => {
       category: 'DE',
       tags: ['Apache Airflow', 'ETL', 'PostgreSQL', 'Python', 'API Integration'],
       image: '/pipe.jpg',
+      timeframe: 'Mar 2025',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/airflow-weather-pipeline',
@@ -51,16 +55,12 @@ const Projects = () => {
       category: 'AI/ML',
       tags: ['Flask', 'AWS Bedrock', 'EC2', 'FPDF', 'HTML', 'CSS', 'JS'],
       image: '/mcc.png',
+      timeframe: 'Feb 2025',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/EduQuizAI',
       },
     },
-    
-   
-   
-    
-    
     {
       id: 7,
       title: 'Groq Code Forge: Python Code Optimizer',
@@ -68,6 +68,7 @@ const Projects = () => {
       category: 'AI/ML',
       tags: ['Flask', 'Groq API', 'Langchain', 'Python', 'Code Optimization'],
       image: '/codeopt1.png',
+      timeframe: 'Apr 2025',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/CodeOptimizer',
@@ -80,6 +81,7 @@ const Projects = () => {
       category: 'AI/ML',
       tags: ['Flask', 'SVD', 'TF-IDF', 'Scikit-learn', 'Surprise', 'Python'],
       image: '/mv.jpg',
+      timeframe: 'Dec 2024',
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/Movie-Recommendation-System',
@@ -92,6 +94,7 @@ const Projects = () => {
       category: 'AI/ML',
       tags: ['SVM', 'Random Forest', 'XGBoost', 'tkinter', 'Python'],
       image: '/bcc.png',
+      timeframe: 'Oct 2023',
       links: {
         demo: 'https://youtu.be/ZRLmUZ4y8EQ?feature=shared',
         github: '#',
@@ -104,9 +107,23 @@ const Projects = () => {
       category: 'Data Science',
       tags: ['SQL', 'ER Modeling', 'Data Analysis'],
       image: '/sqq.webp',
+      timeframe: 'Dec 2023',
       links: {
         demo: 'https://www.linkedin.com/posts/sudheer-kumar-thati_oyo-activity-7058820058365501440-EjDY?utm_source=share&utm_medium=member_android&rcm=ACoAAD22K6MBpe4xT0yI0p1klFV8dXo5fzPWbg4',
         github: '#',
+      },
+    },
+    {
+      id: 10,
+      title: 'Hospital Management System API',
+      description: 'A comprehensive Spring Boot API for hospital management, featuring CRUD operations for patients, doctors, appointments, departments, and staff with H2 database integration.',
+      category: 'Web',
+      tags: ['Java', 'Spring Boot', 'Spring Web', 'Spring Data JPA', 'H2 Database', 'RESTful API'],
+      image: '/sb.png',
+      timeframe: 'Nov 2024',
+      links: {
+        demo: '#',
+        github: 'https://github.com/Sudheerbmb/Hospital_Management_System',
       },
     },
   ];
@@ -114,6 +131,8 @@ const Projects = () => {
   const filteredProjects = activeCategory === 'All' 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
     <section id="projects" className="section-padding bg-gradient-to-b from-background/95 to-background">
@@ -147,7 +166,7 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <div 
               key={project.id} 
               className="glass-card rounded-xl overflow-hidden interactive-card"
@@ -155,39 +174,44 @@ const Projects = () => {
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className="w-full h-48 object-cover"
+                className="w-full h-40 object-cover"
               />
-              <div className="p-6 space-y-4">
+              <div className="p-4 space-y-3">
                 <div className="flex items-start justify-between">
-                  <h4 className="text-xl font-semibold">{project.title}</h4>
-                  <Badge className="bg-accent/20 text-accent">{project.category}</Badge>
+                  <h4 className="text-lg font-semibold">{project.title}</h4>
+                  <Badge className="bg-accent/20 text-accent text-xs">{project.category}</Badge>
                 </div>
                 
-                <p className="text-foreground/70 text-sm line-clamp-3">
+                <div className="flex items-center gap-2 text-xs text-foreground/70">
+                  <CalendarDays className="w-3 h-3" />
+                  <span>{project.timeframe}</span>
+                </div>
+                
+                <p className="text-foreground/70 text-xs line-clamp-2">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <Badge 
                       key={tag} 
                       variant="outline" 
-                      className="border-primary/30 text-foreground/80"
+                      className="border-primary/30 text-foreground/80 text-xs"
                     >
                       {tag}
                     </Badge>
                   ))}
                 </div>
                 
-                <div className="flex justify-between pt-4">
-                  <div className="flex gap-3">
+                <div className="flex justify-between pt-2">
+                  <div className="flex gap-2">
                     <a 
                       href={project.links.github} 
                       className="text-foreground/80 hover:text-primary transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      <Github size={20} />
+                      <Github size={18} />
                     </a>
                     <a 
                       href={project.links.demo} 
@@ -195,22 +219,33 @@ const Projects = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink size={20} />
+                      <ExternalLink size={18} />
                     </a>
                   </div>
                   
                   <a 
                     href={`#project-${project.id}`} 
-                    className="text-sm text-accent hover:text-accent/80 flex items-center gap-1 transition-colors"
+                    className="text-xs text-accent hover:text-accent/80 flex items-center gap-1 transition-colors"
                   >
                     View Details
-                    <ArrowRight size={16} />
+                    <ArrowRight size={14} />
                   </a>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {filteredProjects.length > 6 && !showAll && (
+          <div className="text-center mt-12">
+            <Button
+              onClick={() => setShowAll(true)}
+              className="bg-primary hover:bg-primary/90"
+            >
+              See More Projects
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

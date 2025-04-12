@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,6 +17,11 @@ const Contact = () => {
     message: '',
   });
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init('bhxViku3_mGqu7g9M'); // Your EmailJS public key
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -27,18 +32,22 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Replace these with your actual EmailJS credentials
+      if (!formRef.current) {
+        throw new Error('Form reference not found');
+      }
+
       const result = await emailjs.sendForm(
-        'service_8edgm6d', // EmailJS service ID
-        'template_7onqixd', // EmailJS template ID
+        'service_8edgm6d', // Your EmailJS service ID
+        'template_7onqixd', // Your EmailJS template ID
         formRef.current,
-        'bhxViku3_mGqu7g9M' // EmailJS public key
+        'bhxViku3_mGqu7g9M' // Your EmailJS public key
       );
       
       if (result.text === 'OK') {
         toast({
           title: "Message Sent!",
           description: "Thanks for reaching out. I'll get back to you soon.",
+          duration: 5000,
         });
         
         // Reset form
@@ -55,8 +64,9 @@ const Contact = () => {
       console.error('Error sending email:', error);
       toast({
         title: "Error",
-        description: "There was a problem sending your message. Please try again later.",
+        description: error.message || "There was a problem sending your message. Please try again later.",
         variant: "destructive",
+        duration: 5000,
       });
     } finally {
       setIsSubmitting(false);
@@ -122,6 +132,7 @@ const Contact = () => {
                   onChange={handleChange} 
                   placeholder="Your Name" 
                   required 
+                  disabled={isSubmitting}
                 />
                 <Input 
                   id="email" 
@@ -131,6 +142,7 @@ const Contact = () => {
                   onChange={handleChange} 
                   placeholder="Your Email" 
                   required 
+                  disabled={isSubmitting}
                 />
                 <Input 
                   id="subject" 
@@ -139,6 +151,7 @@ const Contact = () => {
                   onChange={handleChange} 
                   placeholder="Subject" 
                   required 
+                  disabled={isSubmitting}
                 />
                 <Textarea 
                   id="message" 
@@ -147,10 +160,24 @@ const Contact = () => {
                   onChange={handleChange} 
                   placeholder="Your Message" 
                   required 
+                  disabled={isSubmitting}
                 />
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <Send size={16} />
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Sending...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <span>Send Message</span>
+                      <Send size={16} />
+                    </div>
+                  )}
                 </Button>
               </div>
             </form>

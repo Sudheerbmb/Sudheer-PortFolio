@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Clock, CalendarDays, Play } from 'lucide-react';
 
 const Blog = () => {
+  const [showAllPosts, setShowAllPosts] = useState(false);
+
   // Blog posts data
   const posts = [
     
@@ -14,7 +16,7 @@ const Blog = () => {
       image: 'ds.jpg',
       category: 'Data Structures',
       date: 'May 10, 2023',
-      readTime: '15:30 min watch',
+      readTime: '09:54 min watch',
       videoUrl: 'https://youtu.be/NgPlMRwBrwU?feature=shared',
       isVideo: true,
     },
@@ -25,7 +27,7 @@ const Blog = () => {
       image: 'bc.jpg',
       category: 'Machine Learning',
       date: 'Apr 15, 2023',
-      readTime: '12:45 min watch',
+      readTime: '32:33 min watch',
       videoUrl: 'https://youtu.be/ZRLmUZ4y8EQ?feature=shared',
       isVideo: true,
     },
@@ -43,6 +45,9 @@ const Blog = () => {
    
   ];
 
+  // Initially show only 3 posts
+  const displayedPosts = showAllPosts ? posts : posts.slice(0, 3);
+
   return (
     <section id="blog" className="section-padding bg-gradient-to-b from-background to-background/95">
       <div className="container">
@@ -59,7 +64,7 @@ const Blog = () => {
 
         {/* Blog Posts */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
+          {displayedPosts.map((post) => (
             <div 
               key={post.id} 
               className="glass-card rounded-xl overflow-hidden interactive-card"
@@ -136,13 +141,19 @@ const Blog = () => {
           ))}
         </div>
         
-        {/* View All Posts */}
-        <div className="text-center mt-12">
-          <Button variant="outline" className="neon-border gap-2">
-            View All Posts
-            <ArrowRight size={16} />
-          </Button>
-        </div>
+        {/* View All Posts Button */}
+        {!showAllPosts && posts.length > 3 && (
+          <div className="text-center mt-12">
+            <Button 
+              variant="outline" 
+              className="neon-border gap-2"
+              onClick={() => setShowAllPosts(true)}
+            >
+              View All Posts
+              <ArrowRight size={16} />
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

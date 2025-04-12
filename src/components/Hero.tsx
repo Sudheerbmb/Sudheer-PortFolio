@@ -48,7 +48,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       {/* Animated grid background */}
       <div 
         ref={gridRef}
@@ -60,7 +60,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-radial from-transparent to-background opacity-90"></div>
       
       {/* Content */}
-      <div className="container relative z-10 pt-20 lg:pt-0">
+      <div className="container relative z-10">
         <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
           <p className="text-accent font-medium">Hello, I'm</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
@@ -73,38 +73,41 @@ const Hero = () => {
           Data scientist specializing in deriving actionable insights from complex data. Currently, I'm focused on building AI-driven solutions for real-world challenges.
           </p>
           
-          {/* Call-to-action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button className="bg-primary hover:bg-primary/90">View My Work</Button>
-            <Button variant="outline" className="neon-border">Contact Me</Button>
-          </div>
-          
           {/* Social links */}
-          <div className="flex items-center space-x-6 mt-8">
-            <a href="https://https://github.com/Sudheerbmb" className="text-foreground/80 hover:text-neon-purple transition-colors">
+          <div className="flex items-center space-x-6 mt-12">
+            <a 
+              href="https://github.com/Sudheerbmb" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-foreground/80 hover:text-neon-purple transition-colors"
+            >
               <Github size={24} />
             </a>
-            <a href="https://linkedin.com/in/sudheer-kumar-thati/ " className="text-foreground/80 hover:text-neon-blue transition-colors">
+            <a 
+              href="https://linkedin.com/in/sudheer-kumar-thati/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-foreground/80 hover:text-neon-blue transition-colors"
+            >
               <Linkedin size={24} />
             </a>
-            <a href="https://x.com/SudheerTruly/" className="text-foreground/80 hover:text-neon-cyan transition-colors">
+            <a 
+              href="https://x.com/SudheerTruly/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-foreground/80 hover:text-neon-cyan transition-colors"
+            >
               <Twitter size={24} />
             </a>
-            <a href="mailto:sudheermsdvk@gmail.com" className="text-foreground/80 hover:text-neon-orange transition-colors">
+            <a 
+              href="mailto:sudheermsdvk@gmail.com" 
+              className="text-foreground/80 hover:text-neon-orange transition-colors"
+            >
               <Mail size={24} />
             </a>
           </div>
         </div>
       </div>
-      
-      {/* Scroll down indicator */}
-      <a 
-        href="#about" 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-foreground/50 hover:text-foreground/80 transition-colors"
-      >
-        {/* <span className="mb-2 text-sm">Scroll Down</span>
-        <ChevronDown size={20} className="animate-bounce" /> */}
-      </a>
     </section>
   );
 };

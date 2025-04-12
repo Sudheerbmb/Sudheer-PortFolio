@@ -18,14 +18,14 @@ const Experience = () => {
         },
         {
           section: 'Machine Learning Development',
-          content: 'Developed and deployed a sophisticated machine learning model with 87% accuracy to predict capital investment requirements for achieving targeted business outcomes.'
+          content: 'Developed and deployed a sophisticated machine learning model with 87% accuracy to predict capital investment requirements for achieving targeted business outcomes and dynamic counsellor allotment.'
         },
         {
           section: 'Healthcare Application Development',
-          content: 'Designed and deployed a comprehensive medical web application featuring advanced functionalities including medicine booking, doctor consultation scheduling, and a diabetes prediction model with 85%+ precision.'
+          content: 'Designed and deployed a comprehensive medical web application featuring advanced functionalities including medicine booking, AI Medical Chatbot and a diabetes prediction model with 85%+ precision.'
         }
       ],
-      skills: ['Python', 'Machine Learning', 'Data Analysis', 'Web Development', 'AI/ML', 'Healthcare Tech'],
+      skills: ['Python', 'Machine Learning', 'Data Analysis', 'Web Development', 'AI', 'Healthcare Tech'],
     },
   ];
 
@@ -59,18 +59,21 @@ const Experience = () => {
       name: 'Python for Data Science',
       issuer: 'Learnbay',
       date: 'Feb 2025',
+      overview: 'Mastered Python programming fundamentals, data structures, and libraries like NumPy, Pandas, and Matplotlib. Gained expertise in data manipulation, visualization, and statistical analysis techniques essential for data science projects.'
     },
     {
       id: 2,
       name: 'Azure Data Scientist Associate',
       issuer: 'Microsoft',
       date: 'Dec 2024',
+      overview: 'Acquired skills in implementing machine learning solutions on Azure, including data preparation, model training, deployment, and monitoring. Learned to use Azure Machine Learning service, Azure Databricks, and Azure Synapse Analytics for end-to-end ML workflows.'
     },
     {
       id: 3,
       name: 'Azure Data Fundamentals',
       issuer: 'Microsoft',
-      date: 'Dec 2025',
+      date: 'Dec 2024',
+      overview: 'Gained foundational knowledge of core data concepts, relational and non-relational data, and data analytics. Learned about Azure data services, including Azure SQL Database, Azure Cosmos DB, and Azure Synapse Analytics.'
     },
   ];
 
@@ -97,50 +100,50 @@ const Experience = () => {
             </div>
 
             <div className="space-y-6">
-              {workExperience.map((job, index) => (
-                <div key={job.id} className="relative">
-                  <div className="flex gap-6">
-                    {/* Timeline dot */}
-                    <div className="relative z-10 mt-1.5">
-                      <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-primary animate-pulse-glow"></div>
+              {workExperience.map((job) => (
+                <div key={job.id} className="glass-card rounded-xl p-6 interactive-card">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex justify-between items-start">
+                      <div className="flex items-start gap-3">
+                        <div className="w-12 h-12 rounded-lg bg-white/5 border border-accent/20 overflow-hidden">
+                          <img 
+                            src="/fut1.jpg" 
+                            alt="Futurense Technologies" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h5 className="text-xl font-medium">{job.title}</h5>
+                          <p className="text-accent">{job.company}</p>
+                        </div>
                       </div>
+                      <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap">
+                        {job.period}
+                      </Badge>
                     </div>
                     
-                    {/* Content */}
-                    <div className="glass-card rounded-xl p-6 flex-1 interactive-card h-full">
-                      <div className="flex flex-wrap justify-between gap-2 mb-2">
-                        <h5 className="text-xl font-medium">{job.title}</h5>
-                        <div className="flex items-center text-foreground/70 text-sm">
-                          <CalendarDays size={14} className="mr-1" />
-                          {job.period}
-                        </div>
-                      </div>
-                      
-                      <p className="text-accent mb-3">{job.company}</p>
-                      <p className="text-foreground/70 mb-3 text-sm">{job.description}</p>
-                      
-                      {job.details && (
-                        <div className="space-y-2 mb-3">
-                          {job.details.map((detail, idx) => (
-                            <div key={idx} className="border-l-2 border-primary/30 pl-3">
-                              <h6 className="font-medium text-foreground/90 text-sm">{detail.section}</h6>
-                              <p className="text-foreground/70 text-xs">{detail.content}</p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      
-                      <div className="flex flex-wrap gap-1.5">
-                        {job.skills.map((skill) => (
-                          <Badge 
-                            key={skill} 
-                            className="bg-primary/20 hover:bg-primary/30 text-foreground/90 border border-primary/30 text-xs"
-                          >
-                            {skill}
-                          </Badge>
+                    <p className="text-foreground/70 text-sm">{job.description}</p>
+                    
+                    {job.details && (
+                      <div className="space-y-3">
+                        {job.details.map((detail, idx) => (
+                          <div key={idx} className="border-l-2 border-primary/30 pl-3">
+                            <h6 className="font-medium text-foreground/90 text-sm">{detail.section}</h6>
+                            <p className="text-foreground/70 text-xs">{detail.content}</p>
+                          </div>
                         ))}
                       </div>
+                    )}
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {job.skills.map((skill) => (
+                        <Badge 
+                          key={skill} 
+                          className="bg-primary/20 hover:bg-primary/30 text-foreground/90 border border-primary/30 text-xs"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -159,12 +162,25 @@ const Experience = () => {
               {education.map((edu) => (
                 <div key={edu.id} className="glass-card rounded-xl p-6 interactive-card">
                   <div className="flex justify-between items-start">
-                    <div>
-                      <h5 className="text-lg font-medium">{edu.degree}</h5>
-                      <p className="text-accent mb-3">{edu.institution}</p>
-                      <p className="text-foreground/70 text-sm">{edu.description}</p>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-white/5 border border-accent/20 overflow-hidden flex-shrink-0">
+                        <img 
+                          src={
+                            edu.institution.includes('Lovely Professional University') ? '/lpu.png' :
+                            edu.institution.includes('Narayana') ? '/nar.avif' :
+                            '/chai.jpeg'
+                          }
+                          alt={edu.institution}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h5 className="text-lg font-medium">{edu.degree}</h5>
+                        <p className="text-accent">{edu.institution}</p>
+                        <p className="text-foreground/70 text-sm mt-1">{edu.description}</p>
+                      </div>
                     </div>
-                    <Badge className="bg-accent/20 text-foreground/90 border border-accent/30">
+                    <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap">
                       {edu.period}
                     </Badge>
                   </div>
@@ -174,7 +190,7 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Certifications - Now below both Experience and Education */}
+        {/* Certifications */}
         <div className="mt-12">
           <div className="flex items-center gap-3 mb-6">
             <svg 
@@ -198,20 +214,59 @@ const Experience = () => {
             <h4 className="text-2xl font-semibold">Certifications</h4>
           </div>
 
-          <div className="glass-card rounded-xl p-6 interactive-card">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {certifications.map((cert) => (
-                <div key={cert.id} className="flex flex-col justify-between">
-                  <div>
-                    <h5 className="text-base font-medium">{cert.name}</h5>
-                    <p className="text-foreground/70 text-sm">{cert.issuer}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {certifications.map((cert) => (
+              <a 
+                key={cert.id} 
+                href={
+                  cert.name.includes('Azure Data Scientist') ? 'https://learn.microsoft.com/en-us/users/sudheerkumar-3457/credentials/8ce2fb3bcb6c5bbe' :
+                  cert.name.includes('Azure Data Fundamentals') ? 'https://learn.microsoft.com/en-us/users/sudheerkumar-3457/credentials/cf40454706fe3de6' :
+                  'https://invoice-lb.s3.us-east-2.amazonaws.com/certificate/SUDHEER-KUMARTue-Feb-18-2025-05-34-16-GMT-0000--Coordinated-Universal-Time--2284gv3r.pdf'
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-card rounded-xl p-6 interactive-card hover:border-accent/30 transition-all duration-300 hover:scale-[1.02] group"
+              >
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-between items-start">
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-lg bg-white/5 border border-accent/20 overflow-hidden flex-shrink-0 group-hover:border-accent/40 transition-colors">
+                        <img 
+                          src={
+                            cert.issuer.includes('Learnbay') ? '/lb.png' :
+                            cert.issuer.includes('Microsoft') ? '/mc.jpg' :
+                            '/mc.jpg'
+                          }
+                          alt={cert.issuer}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h5 className="text-lg font-semibold group-hover:text-primary transition-colors">{cert.name}</h5>
+                        <p className="text-accent font-medium">{cert.issuer}</p>
+                      </div>
+                    </div>
+                    <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap group-hover:bg-accent/30 transition-colors">
+                      {cert.date}
+                    </Badge>
                   </div>
-                  <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 mt-2 w-fit">
-                    {cert.date}
-                  </Badge>
+                  
+                  {/* Certificate Image */}
+                  <div className="relative aspect-[1.4/1] rounded-lg overflow-hidden border border-accent/20 group-hover:border-accent/30 transition-colors bg-white/5">
+                    <img 
+                      src={
+                        cert.name.includes('Azure Data Scientist') ? '/mic.jpg' :
+                        cert.name.includes('Azure Data Fundamentals') ? '/mic0.jpg' :
+                        '/LB.jpg'
+                      }
+                      alt={`${cert.name} Certificate`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  </div>
                 </div>
-              ))}
-            </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>
