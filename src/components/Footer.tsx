@@ -2,6 +2,51 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const languages = [
+  { text: 'సుధీర్', lang: 'Telugu' },
+  { text: 'सुधीर', lang: 'Hindi' },
+  { text: 'സുധീർ', lang: 'Malayalam' },
+  { text: 'சுதீர்', lang: 'Tamil' },
+  { text: 'ಸುಧೀರ್', lang: 'Kannada' },
+  { text: 'সুধীর', lang: 'Bengali' },
+  { text: 'સુધીર', lang: 'Gujarati' },
+  { text: 'ਸੁਧੀਰ', lang: 'Punjabi' },
+  { text: 'ସୁଧୀର', lang: 'Odia' },
+  { text: 'सुधीर', lang: 'Marathi' },
+  { text: 'Sudheer', lang: 'English' }
+];
+
+const AnimatedName = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % languages.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative h-8">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 flex items-center"
+        >
+          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
+            {languages[currentIndex].text}
+          </span>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const ECGLine = () => {
   return (
     <motion.div 
@@ -79,19 +124,12 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-background border-t border-border/20 py-8">
+    <footer className="bg-background border-t border-border/20 py-4">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <motion.a
-              href="#"
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              Sudheer
-            </motion.a>
-            <p className="text-foreground/60 mt-2 text-sm">
+          <div className="mb-4 md:mb-0">
+            <AnimatedName />
+            <p className="text-foreground/60 mt-1 text-sm">
               Creating digital experiences that matter.
             </p>
           </div>
@@ -123,14 +161,34 @@ const Footer = () => {
             </motion.div>
             
             <p className="text-foreground/60 text-sm flex items-center">
-              Made with <Heart size={14} className="mx-1 text-primary animate-pulse" /> using React & TailwindCSS
-            </p>
-            <p className="text-foreground/60 text-sm">
-              &copy; {currentYear} Sudheer. All rights reserved.
+              Made with <Heart size={14} className="mx-1 heart-icon" fill="currentColor" /> 
             </p>
           </div>
         </div>
       </div>
+
+      <style>
+        {`
+          .heart-icon {
+            animation: heartBeat 1.5s infinite;
+          }
+
+          @keyframes heartBeat {
+            0% {
+              color: #ef4444;
+              fill: #ef4444;
+            }
+            50% {
+              color: #ef4444;
+              fill: transparent;
+            }
+            100% {
+              color: #ef4444;
+              fill: #ef4444;
+            }
+          }
+        `}
+      </style>
     </footer>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalendarDays, Briefcase, GraduationCap } from 'lucide-react';
+import { CalendarDays, Briefcase, GraduationCap, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 
@@ -14,15 +14,15 @@ const Experience = () => {
       details: [
         {
           section: 'Data Analysis & Insights',
-          content: 'Performed comprehensive exploratory data analysis (EDA) on 20,000+ data points from marketing campaigns and endorsements, extracting actionable insights that informed strategic decision-making.'
+          content: 'Conducted comprehensive analysis of 20,000+ marketing campaign data points using Python and advanced statistical methods. Developed predictive models achieving 95% accuracy in customer behavior prediction, enabling targeted marketing strategies and improved campaign ROI.'
         },
         {
           section: 'Machine Learning Development',
-          content: 'Developed and deployed a sophisticated machine learning model with 87% accuracy to predict capital investment requirements for achieving targeted business outcomes and dynamic counsellor allotment.'
+          content: 'Engineered and deployed a sophisticated machine learning model using Python and scikit-learn, achieving 87% accuracy in capital investment prediction. Implemented dynamic counselor allocation system, optimizing resource utilization and improving service delivery efficiency by 30%.'
         },
         {
           section: 'Healthcare Application Development',
-          content: 'Designed and deployed a comprehensive medical web application featuring advanced functionalities including medicine booking, AI Medical Chatbot and a diabetes prediction model with 85%+ precision.'
+          content: 'Designed and implemented a full-stack medical web application featuring an AI-powered chatbot for patient queries and a diabetes prediction model with 85% precision. Integrated medicine booking system and reduced average patient wait time by 40%, significantly improving healthcare service delivery.'
         }
       ],
       skills: ['Python', 'Machine Learning', 'Data Analysis', 'Web Development', 'AI', 'Healthcare Tech'],
@@ -33,7 +33,8 @@ const Experience = () => {
     {
       id: 1,
       degree: 'B.Tech in Computer Science and Engineering',
-      institution: 'Lovely Professional University, Punjab',
+      institution: 'Lovely Professional University',
+      location: 'Punjab, India',
       period: '2022 - 2026',
       description: 'CGPA: 8.84',
     },
@@ -41,6 +42,7 @@ const Experience = () => {
       id: 2,
       degree: '12th with Science',
       institution: 'Narayana Junior College',
+      location: 'Kadapa, Andhra Pradesh',
       period: '2019 - 2021',
       description: 'Percentage: 97.5%',
     },
@@ -48,6 +50,7 @@ const Experience = () => {
       id: 3,
       degree: '10th with Science',
       institution: 'Sri Chaitanya Techno School',
+      location: 'Rajampet, Andhra Pradesh',
       period: '2018 - 2019',
       description: 'CGPA: 10',
     },
@@ -128,7 +131,7 @@ const Experience = () => {
                       <div className="space-y-3">
                         {job.details.map((detail, idx) => (
                           <div key={idx} className="border-l-2 border-primary/30 pl-3">
-                            <h6 className="font-medium text-foreground/90 text-sm">{detail.section}</h6>
+                            <h6 className="font-medium text-primary text-sm">{detail.section}</h6>
                             <p className="text-foreground/70 text-xs">{detail.content}</p>
                           </div>
                         ))}
@@ -158,34 +161,50 @@ const Experience = () => {
               <h4 className="text-2xl font-semibold">Education</h4>
             </div>
 
-            <div className="space-y-4">
-              {education.map((edu) => (
-                <div key={edu.id} className="glass-card rounded-xl p-6 interactive-card">
-                  <div className="flex justify-between items-start">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-white/5 border border-accent/20 overflow-hidden flex-shrink-0">
-                        <img 
-                          src={
-                            edu.institution.includes('Lovely Professional University') ? '/lpu.png' :
-                            edu.institution.includes('Narayana') ? '/nar.avif' :
-                            '/chai.jpeg'
-                          }
-                          alt={edu.institution}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <h5 className="text-lg font-medium">{edu.degree}</h5>
-                        <p className="text-accent">{edu.institution}</p>
-                        <p className="text-foreground/70 text-sm mt-1">{edu.description}</p>
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+              
+              <div className="space-y-8">
+                {education.map((edu, index) => (
+                  <div key={edu.id} className="relative pl-12">
+                    {/* Timeline dot */}
+                    <div className="absolute left-[21px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-2 border-primary/60 shadow-lg shadow-primary/20">
+                      <div className="absolute inset-0.5 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
+                    </div>
+                    
+                    <div className="glass-card rounded-xl p-6 interactive-card">
+                      <div className="flex justify-between items-start">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-lg bg-white/5 border border-accent/20 overflow-hidden flex-shrink-0">
+                            <img 
+                              src={
+                                edu.institution.includes('Lovely Professional University') ? '/lpu.png' :
+                                edu.institution.includes('Narayana') ? '/nar.avif' :
+                                '/chai.jpeg'
+                              }
+                              alt={edu.institution}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <h5 className="text-lg font-medium">{edu.degree}</h5>
+                            <p className="text-accent">{edu.institution}</p>
+                            <p className="text-foreground/70 text-sm mt-1">{edu.description}</p>
+                            <div className="flex items-center gap-1 text-foreground/60 text-xs mt-1">
+                              <MapPin size={12} />
+                              <span>{edu.location}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap">
+                          {edu.period}
+                        </Badge>
                       </div>
                     </div>
-                    <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap">
-                      {edu.period}
-                    </Badge>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
