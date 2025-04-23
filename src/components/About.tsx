@@ -1,8 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { FileText, ExternalLink } from 'lucide-react';
+import { FileText, ExternalLink, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const About = () => {
+  const [showPortfolio, setShowPortfolio] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const portfolioSlides = [
+    {
+      title: "LexEcho",
+      description: "Audio Transcription & Summarization",
+      image: "/echo.png",
+      link: "https://github.com/Sudheerbmb/LexEcho"
+    },
+    {
+      title: "Medical Chatbot",
+      description: "AI-Powered Healthcare Assistant",
+      image: "/bot.png",
+      link: "https://github.com/Sudheerbmb/Medical-ChatBot"
+    },
+    {
+      title: "Weather ETL Pipeline",
+      description: "Data Engineering with Airflow",
+      image: "/pipe.jpg",
+      link: "https://github.com/Sudheerbmb/airflow-weather-pipeline"
+    },
+    {
+      title: "MCQ Generator",
+      description: "AI-Powered Quiz Creation",
+      image: "/mcc.png",
+      link: "https://github.com/Sudheerbmb/EduQuizAI"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % portfolioSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + portfolioSlides.length) % portfolioSlides.length);
+  };
+
   return (
     <section id="about" className="section-padding bg-gradient-to-b from-background to-background/95">
       <div className="container">
@@ -45,7 +84,7 @@ Data is more than numbers—it's a story waiting to be told. I decode patterns, 
 From optimizing databases to streamlining data pipelines, I use Python, Java, and cloud computing to craft solutions that turn complexity into clarity and insights into action.  
 </p>
               <p>
-              When I’m not coding, I explore the latest tech, experimenting through trial and error, and pushing the boundaries of innovation.              </p>
+              When I'm not coding, I explore the latest tech, experimenting through trial and error, and pushing the boundaries of innovation.              </p>
             </div>
             
             {/* Stats */}
@@ -74,13 +113,93 @@ From optimizing databases to streamlining data pipelines, I use Python, Java, an
                 <FileText size={18} />
                 <a href="/Specialized.docx" download>Download CV</a>
               </Button>
-              <Button variant="outline" className="neon-border gap-2">
-                <ExternalLink size={18} />
-                <a href="https://github.com/Sudheerbmb" target="_blank" rel="noopener noreferrer">View Portfolio</a>
-              </Button>
             </div>
           </div>
         </div>
+
+        {/* Portfolio Slideshow Modal */}
+        <AnimatePresence>
+          {showPortfolio && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              onClick={() => setShowPortfolio(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                className="relative w-full max-w-4xl bg-background rounded-xl overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowPortfolio(false)}
+                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+                >
+                  <X size={20} className="text-white" />
+                </button>
+
+                {/* Slideshow Content */}
+                <div className="relative h-[500px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentSlide}
+                      initial={{ x: 300, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: -300, opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute inset-0"
+                    >
+                      <div className="h-full flex flex-col">
+                        <div className="relative h-[300px] overflow-hidden">
+                          <img
+                            src={portfolioSlides[currentSlide].image}
+                            alt={portfolioSlides[currentSlide].title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                        </div>
+                        <div className="flex-1 p-6 flex flex-col justify-between">
+                          <div>
+                            <h3 className="text-2xl font-bold mb-2">{portfolioSlides[currentSlide].title}</h3>
+                            <p className="text-foreground/70">{portfolioSlides[currentSlide].description}</p>
+                          </div>
+                          <div className="flex justify-between items-center mt-4">
+                            <div className="flex gap-2">
+                              <button
+                                onClick={prevSlide}
+                                className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+                              >
+                                ←
+                              </button>
+                              <button
+                                onClick={nextSlide}
+                                className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+                              >
+                                →
+                              </button>
+                            </div>
+                            <a
+                              href={portfolioSlides[currentSlide].link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:text-primary/80 transition-colors"
+                            >
+                              View on GitHub →
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -162,21 +162,29 @@ const Experience = () => {
             </div>
 
             <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+              {/* Enhanced Timeline line with gradient and glow */}
+              <div className="absolute left-6 top-0 bottom-0 w-[2px]">
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-secondary/20 to-primary/20 blur-sm"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-secondary/10 to-primary/10 blur-md"></div>
+              </div>
               
               <div className="space-y-8">
                 {education.map((edu, index) => (
                   <div key={edu.id} className="relative pl-12">
-                    {/* Timeline dot */}
-                    <div className="absolute left-[21px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-2 border-primary/60 shadow-lg shadow-primary/20">
+                    {/* Enhanced Timeline dot with glow and animation */}
+                    <div className="absolute left-[21px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-2 border-primary/60 shadow-lg shadow-primary/20 group">
                       <div className="absolute inset-0.5 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 blur-sm"></div>
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 blur-md"></div>
+                      {/* Animated pulse effect */}
+                      <div className="absolute inset-0 rounded-full animate-ping bg-gradient-to-r from-primary/20 to-secondary/20"></div>
                     </div>
                     
-                    <div className="glass-card rounded-xl p-6 interactive-card">
+                    <div className="glass-card rounded-xl p-6 interactive-card group hover:border-primary/30 transition-all duration-300">
                       <div className="flex justify-between items-start">
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-lg bg-white/5 border border-accent/20 overflow-hidden flex-shrink-0">
+                          <div className="w-12 h-12 rounded-lg bg-white/5 border border-accent/20 overflow-hidden flex-shrink-0 group-hover:border-primary/30 transition-colors">
                             <img 
                               src={
                                 edu.institution.includes('Lovely Professional University') ? '/lpu.png' :
@@ -188,7 +196,7 @@ const Experience = () => {
                             />
                           </div>
                           <div className="flex-1">
-                            <h5 className="text-lg font-medium">{edu.degree}</h5>
+                            <h5 className="text-lg font-medium group-hover:text-primary transition-colors">{edu.degree}</h5>
                             <p className="text-accent">{edu.institution}</p>
                             <p className="text-foreground/70 text-sm mt-1">{edu.description}</p>
                             <div className="flex items-center gap-1 text-foreground/60 text-xs mt-1">
@@ -197,7 +205,7 @@ const Experience = () => {
                             </div>
                           </div>
                         </div>
-                        <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap">
+                        <Badge className="bg-accent/20 text-foreground/90 border border-accent/30 whitespace-nowrap group-hover:bg-primary/20 group-hover:border-primary/30 transition-colors">
                           {edu.period}
                         </Badge>
                       </div>

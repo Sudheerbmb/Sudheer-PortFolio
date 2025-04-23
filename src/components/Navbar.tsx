@@ -269,7 +269,7 @@ const Navbar = () => {
               className="neon-border"
               onClick={() => setIsResumeOpen(true)}
             >
-              My CV
+              My Resume
             </Button>
           </nav>
 

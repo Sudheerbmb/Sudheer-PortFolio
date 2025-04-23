@@ -204,31 +204,13 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex justify-between pt-2">
-                  <div className="flex gap-2">
-                    <a 
-                      href={project.links.github} 
-                      className="text-foreground/80 hover:text-primary transition-colors"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      <Github size={18} />
-                    </a>
-                    <a 
-                      href={project.links.demo} 
-                      className="text-foreground/80 hover:text-accent transition-colors"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink size={18} />
-                    </a>
-                  </div>
-                  
                   <a 
-                    href={`#project-${project.id}`} 
-                    className="text-xs text-accent hover:text-accent/80 flex items-center gap-1 transition-colors"
+                    href={project.links.github} 
+                    className="text-foreground/80 hover:text-primary transition-colors"
+                    target="_blank" 
+                    rel="noopener noreferrer"
                   >
-                    View Details
-                    <ArrowRight size={14} />
+                    <Github size={18} />
                   </a>
                 </div>
               </div>
