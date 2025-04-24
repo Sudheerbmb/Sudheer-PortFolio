@@ -111,7 +111,7 @@ From optimizing databases to streamlining data pipelines, I use Python, Java, an
             <div className="flex flex-wrap gap-4 mt-8">
               <Button className="gap-2">
                 <FileText size={18} />
-                <a href="/Specialized.docx" download>Download CV</a>
+                <a href="/Scv.pdf" download>Download CV</a>
               </Button>
             </div>
           </div>
