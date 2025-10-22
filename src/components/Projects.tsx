@@ -126,6 +126,19 @@ const Projects = () => {
         github: 'https://github.com/Sudheerbmb/Hospital_Management_System',
       },
     },
+    {
+      id: 11,
+      title: 'Real-Time Stocks Market Data Pipeline',
+      description: 'End-to-end real-time pipeline: Kafka streaming → Airflow orchestration → Snowflake + DBT transforms → Power BI analytics.',
+      category: 'DE',
+      tags: ['Snowflake', 'DBT', 'Apache Airflow', 'Apache Kafka', 'Python', 'Docker', 'Power BI'],
+      image: '/img.jpg',
+      timeframe: 'Oct 2025',
+      links: {
+        demo: '#',
+        github: 'https://github.com/Sudheerbmb/Snowflake_Stockmarket',
+      },
+    },
   ];
 
   const filteredProjects = activeCategory === 'All' 
