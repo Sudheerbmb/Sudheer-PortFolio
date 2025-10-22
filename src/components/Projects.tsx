@@ -15,7 +15,7 @@ const Projects = () => {
       description: 'End-to-end real-time pipeline: Kafka streaming → Airflow orchestration → Snowflake + DBT transforms → Power BI analytics.',
       category: 'DE',
       tags: ['Snowflake', 'DBT', 'Apache Airflow', 'Apache Kafka', 'Python', 'Docker', 'Power BI'],
-      image: '/pipe.jpg',
+      image: '/pipeline.jpg',
       timeframe: 'Oct 2025',
       links: {
         demo: '#',
