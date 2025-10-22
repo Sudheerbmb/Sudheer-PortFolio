@@ -10,6 +10,19 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 11,
+      title: 'Real-Time Stocks Market Data Pipeline',
+      description: 'End-to-end real-time pipeline: Kafka streaming → Airflow orchestration → Snowflake + DBT transforms → Power BI analytics.',
+      category: 'DE',
+      tags: ['Snowflake', 'DBT', 'Apache Airflow', 'Apache Kafka', 'Python', 'Docker', 'Power BI'],
+      image: '/pipe.jpg',
+      timeframe: 'Oct 2025',
+      links: {
+        demo: '#',
+        github: 'https://github.com/Sudheerbmb/Snowflake_Stockmarket',
+      },
+    },
+    {
       id: 6,
       title: 'LexEcho:Audio Transcription and Summarization Web App',
       description: 'Flask web app that transcribes M4A audio files using Whisper, summarizes content with Gemini API, and extracts key topics.',
@@ -124,19 +137,6 @@ const Projects = () => {
       links: {
         demo: '#',
         github: 'https://github.com/Sudheerbmb/Hospital_Management_System',
-      },
-    },
-    {
-      id: 11,
-      title: 'Real-Time Stocks Market Data Pipeline',
-      description: 'End-to-end real-time pipeline: Kafka streaming → Airflow orchestration → Snowflake + DBT transforms → Power BI analytics.',
-      category: 'DE',
-      tags: ['Snowflake', 'DBT', 'Apache Airflow', 'Apache Kafka', 'Python', 'Docker', 'Power BI'],
-      image: '/img.jpg',
-      timeframe: 'Oct 2025',
-      links: {
-        demo: '#',
-        github: 'https://github.com/Sudheerbmb/Snowflake_Stockmarket',
       },
     },
   ];
