@@ -11,7 +11,7 @@ const Projects = () => {
   const projects = [
     {
       id: 12,
-      title: 'Real-Time Patient Flow Analytics on Azure',
+      title: 'Azure-HospitalFlow-Automated-Pipeline',
       description: 'End-to-end real-time data engineering pipeline for healthcare, analyzing patient flow across hospital departments using Azure Event Hub, Databricks PySpark, and Azure Synapse.',
       category: 'DE',
       tags: ['Azure', 'PySpark', 'Azure Data Factory', 'Azure Synapse', 'Python', 'Databricks', 'Git'],
