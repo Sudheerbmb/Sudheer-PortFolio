@@ -10,6 +10,19 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 12,
+      title: 'Real-Time Patient Flow Analytics on Azure',
+      description: 'End-to-end real-time data engineering pipeline for healthcare, analyzing patient flow across hospital departments using Azure Event Hub, Databricks PySpark, and Azure Synapse.',
+      category: 'DE',
+      tags: ['Azure', 'PySpark', 'Azure Data Factory', 'Azure Synapse', 'Python', 'Databricks', 'Git'],
+      image: '/Azure.png',
+      timeframe: 'Feb 2025',
+      links: {
+        demo: '#',
+        github: 'https://github.com/Sudheerbmb/real-time-patient-flow-azure',
+      },
+    },
+    {
       id: 11,
       title: 'Real-Time Stocks Market Data Pipeline',
       description: 'End-to-end real-time pipeline: Kafka streaming → Airflow orchestration → Snowflake + DBT transforms → Power BI analytics.',
