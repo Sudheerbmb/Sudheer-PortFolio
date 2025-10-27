@@ -19,7 +19,7 @@ const Projects = () => {
       timeframe: 'Feb 2025',
       links: {
         demo: '#',
-        github: 'https://github.com/Sudheerbmb/real-time-patient-flow-azure',
+        github: 'https://github.com/Sudheerbmb/Azure-Hospital-Pipeline'
       },
     },
     {
