@@ -201,7 +201,7 @@ const Resume = ({ isOpen, onClose }: ResumeProps) => {
                 <h4 className="text-lg font-medium">Lovely Professional University Punjab</h4>
                 <div className="flex items-center gap-2 text-sm text-foreground/70 mt-1">
                   <Calendar className="w-4 h-4" />
-                  <span>Computer Science and Engineering — CGPA: 8.84 | 2022 – 2026</span>
+                  <span>Computer Science and Engineering — CGPA: 8.87 | 2022 – 2026</span>
                 </div>
                 <p className="text-sm text-foreground/70 mt-1">Jalandhar, Punjab</p>
               </div>
