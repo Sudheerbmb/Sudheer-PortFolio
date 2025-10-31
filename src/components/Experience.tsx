@@ -36,7 +36,7 @@ const Experience = () => {
       institution: 'Lovely Professional University',
       location: 'Punjab, India',
       period: '2022 - 2026',
-      description: 'CGPA: 8.84',
+      description: 'CGPA: 8.87',
     },
     {
       id: 2,
