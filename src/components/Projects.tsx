@@ -8,7 +8,20 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showAll, setShowAll] = useState(false);
 
-  const projects = [
+  const projects = [{
+  id: 13,
+  title: 'EduLearn – Educational Website UI (Figma Design)',
+  description:
+    'An educational platform interface designed in Figma with auto-layout, interactive components, and responsive structure for online learning modules and course exploration.',
+  category: 'Web',
+  tags: ['Figma', 'UI Design', 'Auto Layout', 'Prototyping', 'Wireframe'],
+  image: "public/IMG-20251101-WA0000.jpg" // add your Figma design preview image
+  timeframe: 'Nov 2025',
+  links: {
+    demo: 'https://www.figma.com/', // replace with your actual Figma share link
+    github: '#', // optional or design system repo
+  },
+},
     {
       id: 12,
       title: 'Azure-HospitalFlow-Automated-Pipeline',
