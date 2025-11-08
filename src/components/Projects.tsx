@@ -20,7 +20,7 @@ const Projects = () => {
       timeframe: 'Nov 2025',
       links: {
         demo: '#',
-        github: '#',
+        github: 'https://github.com/Sudheerbmb/Educational_Website_UI',
       },
     },
     {
